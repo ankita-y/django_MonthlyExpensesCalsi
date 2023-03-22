@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    {% block styles %}
+    {% endblock styles %}
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+        /* Add padding to containers */
+        .container {
+            width: 100%;
+            padding-bottom: 50px;
+            padding: 10px;
+            background-color: white;
+        }
+        .navbar{
+            background-color: steelblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="color: white;"><b>MonthlyExpenseCalsi</b></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}" style="color: white;">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar">
+                    <li><a href="" data-toggle="modal" data-target="#aboutModal" style="color: white;">About</a></li>
+                </ul> 
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: white;"><b>Welcome {{request.user.first_name}}</b></a></li>
+                    <li><a href="{% url 'logout' %}" class="btn" style="color: white;"><i class="fas fa-sign-out-alt"></i><b>Logout</b></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Breadcrumb -->
+        <!-- <ul class="breadcrumb">
+            <li><a href="">Home</a></li>
+            {% block breadcrumb %}
+            {% endblock %}
+        </ul> -->
+        <!-- About Modal -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="about"><b>About - MonthlyExpenseCalsi</b></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    MonthlyExpenseCalsi
+                </div>
+                <div class="modal-footer" style="text-align: left;">All right reserved</div>
+              </div>
+            </div>
+        </div>
+        <!-- Page Content -->
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
+

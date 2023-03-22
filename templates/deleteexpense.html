@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        </style>
+    </head>
+    <body>  
+    <!--For deleting existing data in Script table-->
+        <div class="modal-dialog" role="document">
+            <!-- Modal content-->
+            <form id = "myDeleteForm" method="POST" class="post-form" action="/">
+            {% csrf_token %}
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Are you sure, You want to delete this item from the list?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary deletebtn">Delete</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            <form>
+        </div>
+    </body>
+    
+</html>

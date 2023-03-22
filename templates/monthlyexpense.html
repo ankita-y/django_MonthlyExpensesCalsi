@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .modal-dialog{
+                width: fit-content
+            }
+            .required{
+                color: red;
+            }
+        </style>
+        
+    </head>
+    <body>  
+    <!--For adding new data in Script table-->
+        <div class="modal-dialog" role="document">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form id="myAddForm" method="POST" class="post-form" autocomplete="off" action="/">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <!-- <label for="month"><b>Month:</b></label> {{month.month}} -->
+                        <table>
+                            <tr>
+                                <td><label for="titte"><b>Title:</b></label></td>
+                                <td>{{form.title}}</td>
+                            </tr>
+                            <tr>
+                                <td><label for="desc"><b>Description:</b></label></td>
+                                <td>{{form.desc}}</td>
+                            </tr>
+                            <tr>
+                                <td><label for="amt"><b>Amount:</b></label></td>
+                                <td>{{form.dailyexp}}</td>
+                            </tr>
+                            <tr>
+                                <td><label for="payment"><b>Payment Method:</b></label></td>
+                                <td>{{form.paymentmethod}}</td>
+                            </tr> 
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary addbtn">Add</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>            
+                    </div>
+                <form>
+            </div>
+        </div>
+        <script>
+        </script>
+    </body>
+</html>
